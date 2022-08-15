@@ -1,2 +1,21 @@
 @import "reset.css";
 
+body{
+    background: #fafafa;
+}
+
+#header{
+    width: 100%; /*공중 부양*/
+    position: absolute;/*맨 위로 위치*/
+    z-index: 999;/*absolute의 경우 최소 x축 1개, y축 1개 필요*/
+    left: 0;
+    top: 0;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#header  .inner{/*inner 내 컨텐츠를 넣으면 안에 값이 들어옴*/
+    width: 975px;
+    height: 77px;/*높이 값은 header내의 자식들에게 줌*/
+    margin: 0 auto; /*가운데 정렬*/
+}
