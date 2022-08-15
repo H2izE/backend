@@ -118,6 +118,9 @@ body{
     width: 975px;
     height: 77px;/*높이 값은 header내의 자식들에게 줌*/
     margin: 0 auto; /*가운데 정렬*/
+    display: flex;/*가로 배치*/
+    justify-content: space-between;/*x축 정렬:공간 자동 분배*/
+    align-items: center;/*y축 정렬*/
 }
 
 #header .inner  .logo > a{
@@ -140,6 +143,83 @@ body{
     background: #000;
     position: absolute; /*부모 기준으로 위치 잡음*/
     right: -15px;
-    top: 0;
+    top: -4px;
 
+}
+
+#header .inner .logo .sprite_insta_icon{
+    position: relative;/*after에게 위치 기준 전달*/
+    margin-right: 30px;
+}
+
+#header .inner .logo .sprite_insta_icon:after{
+    content: '';/*공백 받아옴*/
+    width: 1px;
+    height: 28px;
+    background: #000;
+    position: absolute;/*부모 기준*/
+    right: -15px;
+    top: 0;
+}
+
+#header .search_box{
+
+    position:relative;/*기준점 잡고 가로배치*/
+}
+
+
+#search-field{
+    width: 185px;
+    height: 28px;
+    background:#fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding:3px 30px;/*위아래 양쪽*/
+    color:#999;
+    font-weight: 400;
+    text-align: left;/*글자 입력 시 왼쪽부터 보이도록*/
+    font-size: 14px;
+    outline:none;/*포커스 시 나타나는 파란선*/
+}
+
+#search-field::placeholder{/*콜론2개 - 속성선택자*/
+    font-size: 0;/*포커스가 되지 않았을 때 : 검색 글자가 보이지 않도록 함*/
+}
+
+#search-field:focus::placeholder{
+    font-size: 14px;/*포커스 되었을 때 : 글자 보이게 함*/
+}
+
+
+#header .search_box .fake_field{
+    position: absolute;/*검색 창 위에 글자를 보이기*/
+    /*가운데 배치 공식*/
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%,-50%);
+    pointer-events: none;/*검색 시 포인터 인식 불가*/
+}
+
+/*물결(~) - 근처 fake_field*/
+#search-field:focus ~ .fake_field > span:nth-child(1){
+    transform:translateX(-105px);/*돋보기 왼쪽으로 이동*/
+}
+
+
+#search-field:focus ~ .fake_field > span:nth-child(2){
+    display: none;/*포커스 시 글자 숨기기*/
+}
+
+#header .right_icons{
+    width: 132px;/*부모값 좌우값 고정*/
+    display: flex;
+    justify-content: space-between;/*x축 정렬-공간 자동 분배*/
+}
+
+#header .inner .logo div{
+    vertical-align: middle;
+}
+
+#header .inner .logo div:nth-child(2){
+    transform:translateY(2px);
 }
