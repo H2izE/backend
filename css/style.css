@@ -1,9 +1,109 @@
 @import "reset.css";
-
 body{
     background: #fafafa;
 }
+.sprite_insta_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -53px -235px;
+    width: 22px;
+    height: 22px;
+}
 
+.sprite_write_logo {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -94px -72px;
+    width: 103px;
+    height: 29px;
+}
+
+.sprite_compass_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -130px -286px;
+    width: 23px;
+    height: 23px;
+}
+
+.sprite_user_icon_outline {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -272px -182px;
+    width: 22px;
+    height: 24px;
+}
+
+.sprite_heart_icon_outline {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -52px -261px;
+    width: 24px;
+    height: 22px;
+}
+
+.sprite_small_search_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -337px -246px;
+    width: 10px;
+    height: 10px;
+}
+
+.sprite_more_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -301px -218px;
+    width: 15px;
+    height: 3px;
+}
+
+.sprite_bubble_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -239px -202px;
+    width: 24px;
+    height: 24px;
+}
+
+.sprite_share_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -324px -52px;
+    width: 21px;
+    height: 24px;
+}
+
+.sprite_bookmark_outline {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -237px -286px;
+    width: 19px;
+    height: 24px;
+}
+.sprite_bookmark_outline.on {
+    background: url('../imgs/background01.png') no-repeat -159px -286px;
+    width: 19px;
+    height: 24px;
+}
+
+.sprite_small_heart_icon_outline {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -323px -274px;
+    width: 12px;
+    height: 11px;
+}
+
+.sprite_camera_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -271px -104px;
+    width: 24px;
+    height: 22px;
+}
+
+.sprite_insta_big_logo {
+    display: inline-block;
+    background: url('../imgs/background02.png') no-repeat -98px -150px;
+    width: 175px;
+    height: 51px;
+}
+
+.sprite_plus_icon {
+    display: inline-block;
+    background: url('../imgs/background01.png') no-repeat -187px -202px;
+    width: 23px;
+    height: 23px;
+}
 #header{
     width: 100%; /*공중 부양*/
     position: absolute;/*맨 위로 위치*/
@@ -14,8 +114,32 @@ body{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#header  .inner{/*inner 내 컨텐츠를 넣으면 안에 값이 들어옴*/
+#header .inner{/*inner 내 컨텐츠를 넣으면 안에 값이 들어옴*/
     width: 975px;
     height: 77px;/*높이 값은 header내의 자식들에게 줌*/
     margin: 0 auto; /*가운데 정렬*/
+}
+
+#header .inner  .logo > a{
+    color: transparent;/*배경색 투명하게 만듦*/
+}
+
+#header .inner  .logo > div{
+    vertical-align: middle;/*아이콘 일직선상 위치*/
+}
+
+#header .inner  .logo   .sprite_insta_icon{
+    position: relative;/*after 위치 기준점*/
+    margin-right : 30px;
+}
+
+#header .inner  .logo   .sprite_insta_icon:after{
+    content: '';/*공백을 받아옴*/
+    width: 1px;
+    height: 28px;
+    background: #000;
+    position: absolute; /*부모 기준으로 위치 잡음*/
+    right: -15px;
+    top: 0;
+
 }
