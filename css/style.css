@@ -223,3 +223,71 @@ body{
 #header .inner .logo div:nth-child(2){
     transform:translateY(2px);
 }
+
+#main_container{
+    padding-top: 130px;
+    display: flex;
+    justify-content: center; /*x축 가운데 정렬*/
+}
+
+#main_container .inner{
+    width: 935px;
+}
+
+.contents_box{
+
+
+}
+
+.contents{
+    width: 614px;
+    /*height: 500px; 박스자체에서 높이값을 주기보다는 자식들에게 높이값을 주어 내부 값 유동적으로 변경*/
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 3px; /*테두리를 둥글게 */
+    margin-bottom: 60px; /*다른 contents들이 밀려야하므로 사이에 여백주기*/
+    background: white;
+}
+
+.contents .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+
+.contents .top .profile_img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;/*원형태*/
+    overflow:hidden;/*자식이 크기가 넘치지 않도록 함*/
+    margin-right: 10px;
+}
+
+
+.contents .top .profile_img img{
+    width: 100%;/*100%없으면 이미지가 들어가지 않음*/
+}
+
+
+.contents .top .user_container{
+    display: flex; /*가로배치*/
+}
+
+.m_text{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.s_text{
+    font-size: 12px;
+}
+
+.contents   .img_section{
+    overflow: hidden;
+}
+
+.contents   .img_section    img{
+    width: 100%;
+}
