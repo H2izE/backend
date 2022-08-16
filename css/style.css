@@ -291,3 +291,83 @@ body{
 .contents   .img_section    img{
     width: 100%;
 }
+
+.contents   .bottom_icons{
+    display:flex;
+    justify-content: space-between;/*x축 정렬공간을 자동분배*/
+    align-items: center;/*y축 가운데 정렬*/
+    padding: 10px 20px;
+}
+
+.contents   .bottom_icons   .left_icons{
+    display: flex;
+}
+
+.contents   .bottom_icons   .left_icons>div{
+    margin-right: 10px;
+    cursor:pointer; /*누를수 있게 함*/
+}
+
+.contents   .bottom_icons   .right_icons>div{
+    cursor:pointer; /*누를수 있게 함*/
+}
+
+.contents   .likes{
+    padding: 5px 20px;
+    color: #262626;
+}
+
+.contents .comment_container{
+    display:flex;/*가로배치*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+}
+.contents .comment_container .comment{
+    display:flex;/*가로배치*/
+    font-size: 14px;
+}
+
+.contents .comment_container .comment .nick_name{
+    margin-right: 10px;/*ID와 댓글 간의 거리*/
+}
+
+
+.contents .timer{
+    font-size: 10px;
+    letter-spacing: 0.2px; /*자간 조정*/
+    color:#999;
+    border-bottom: 1px solid rgba(0,0,0,0.09);/*실선 추가(아래)*/
+    padding: 10px 20px;
+}
+
+.contents .comment_field{
+    min-height:56px;
+    padding: 0 20px;
+    position: relative;/*자식들 absolute로 위치*/
+}
+
+
+.contents .comment_field input{
+    width: 100%;
+    height: 56px;
+    border: none;
+    outline:none;
+    background: transparent;/*투명하게 설정*/
+}
+
+.contents .comment_field input:focus ~ .upload_btn{
+    pointer-events: initial;/*포인터 이벤트 초기화*/
+    opacity: 1;
+}
+
+.contents .comment_field .upload_btn{
+    color:#3897f0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform:translateY(-50%);/*y축 중앙정렬*/
+    cursor: pointer;
+    pointer-events: none;/*클릭 금지*/
+    opacity: 0.6;
+}
