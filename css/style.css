@@ -114,6 +114,10 @@ body{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+#header.on {
+    position: fixed;
+}
+
 #header .inner{/*inner 내 컨텐츠를 넣으면 안에 값이 들어옴*/
     width: 975px;
     height: 77px;/*높이 값은 header내의 자식들에게 줌*/
@@ -121,6 +125,11 @@ body{
     display: flex;/*가로 배치*/
     justify-content: space-between;/*x축 정렬:공간 자동 분배*/
     align-items: center;/*y축 정렬*/
+    transition: all 1s;/*자연스러운효과*/
+}
+
+#header.on .inner{
+    height: 52px;
 }
 
 #header .inner  .logo > a{
@@ -144,7 +153,7 @@ body{
     position: absolute; /*부모 기준으로 위치 잡음*/
     right: -15px;
     top: -4px;
-
+    transition: all .5s;/*자연스러운효과*/
 }
 
 #header .inner .logo .sprite_insta_icon{
@@ -152,15 +161,6 @@ body{
     margin-right: 30px;
 }
 
-#header .inner .logo .sprite_insta_icon:after{
-    content: '';/*공백 받아옴*/
-    width: 1px;
-    height: 28px;
-    background: #000;
-    position: absolute;/*부모 기준*/
-    right: -15px;
-    top: 0;
-}
 
 #header .search_box{
 
@@ -222,6 +222,15 @@ body{
 
 #header .inner .logo div:nth-child(2){
     transform:translateY(2px);
+    transition: all .5s;/*자연스러운효과*/
+}
+
+#header.on .inner .logo .sprite_insta_icon:after{
+    opacity: 0;
+}
+
+#header.on .inner .logo div:nth-child(2){
+    opacity: 0;
 }
 
 #main_container{
