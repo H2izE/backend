@@ -313,6 +313,12 @@ body{
     cursor:pointer; /*누를수 있게 함*/
 }
 
+.heart_btn.on .sprite_heart_icon_outline{/*on 클래스 추가 시 이미지 변경*/
+    background: url('../imgs/background01.png') no-repeat -26px -261px;
+	width: 24px;
+	height: 22px;
+}
+
 .contents   .likes{
     padding: 5px 20px;
     color: #262626;
