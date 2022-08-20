@@ -1,5 +1,5 @@
 
-const heart = document.querySelector('.heart_btn');//단독실행하면 안됨
+//const heart = document.querySelector('.heart_btn');//단독실행하면 안됨
 const header = document.querySelector('#header');
 const sidebox = document.querySelector('.side_box');
 const variableWidth = document.querySelectorAll(".contents_box .contents");
@@ -14,9 +14,10 @@ const deligation = document.querySelector(".contents_box");
 
 function deligationFunc(e) {
     let elem = e.target; //클릭 요소 가져오기
-    console.log(e.target);
+    //console.log(e.target);
     console.log(elem);
 
+    //잘못 클릭함
     while (!elem.getAttribute('data-name')) {
         //elem의 부모를 찾음
         elem = elem.parentNode;
@@ -53,14 +54,15 @@ function resizeFunc() {
         }
     } else {
         for (let i = 0; i < variableWidth.length; i++) {
-            variableWidth[i].removeAttribute('style');
+            if (window.innerWidth > 600) //디폴트값이 614이므로 그 이상 커지지 않게 하기 위함
+                variableWidth[i].removeAttribute('style');
         }
     }
 }
 
 function scrollFunc() {
     //console.log(pageYOffset);
-    if (pageYOffset >= 10) {
+    if (pageYOffset >= 10) {//드래그할 경우
         header.classList.add('on');
         sidebox.classList.add('on');
         resizeFunc();
@@ -71,7 +73,14 @@ function scrollFunc() {
     }
 }
 
-deligation.addEventListener('click', deligationFunc);
+setTimeout(function () {
+    scrollTo(0, 0);
+}, 100); //새로고침하면 화면이 제일 위로 가게 함
+
+if (deligation) {
+    deligation.addEventListener('click', deligationFunc);
+}
+
 
 window.addEventListener('resize', resizeFunc);//resize 이벤트 발생 시 resizeFunc 실행
 window.addEventListener('scroll', scrollFunc);
