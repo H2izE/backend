@@ -29,9 +29,39 @@ function deligationFunc(e) {
     }
 
     if (elem.matches('[data-name="heartbeat"')) {
-        console.log('하트누름');
+        //console.log('하트누름');
+        let pk = elem.getAttribute('name'); //pk값을 받아옴
+        $.ajax({
+            Method: 'POST', //에러 시 GET으로 변경
+            url: 'data/like.json',
+            data: { pk },
+            dataType: 'json',  //어떤 데이터로 들어오는지 설정
+            success: function (response) {//통신에 성공한 데이터가 response로 들어옴
+                let likeCount = document.querySelector('#like-count-37');
+                likeCount.innerHTML = '좋아요' + response.like_count + '개';
+            },
+            error: function (request, status, error) {
+                alert('로그인 필요');
+                window.location.replace('https://www.naver.com');//임시 에러 웹페이지
+            }
+        })
     } else if (elem.matches('[data-name="bookmark"')) {
-        console.log('북마크누름');
+        //console.log('북마크누름');
+        let pk = elem.getAttribute('name'); //pk값을 받아옴
+        $.ajax({
+            Method: 'POST', //에러 시 GET으로 변경
+            url: 'data/bookmark.json',
+            data: { pk },
+            dataType: 'json',  //어떤 데이터로 들어오는지 설정
+            success: function (response) {//통신에 성공한 데이터가 response로 들어옴
+                let likeCount = document.querySelector('#bookmark-count-37');
+                likeCount.innerHTML = '북마크' + response.bookmark_count + '개';
+            },
+            error: function (request, status, error) {
+                alert('로그인 필요');
+                window.location.replace('https://www.naver.com');//임시 에러 웹페이지
+            }
+        })
     } else if (elem.matches('[data-name="share"')) {
         console.log('공유누름');
     } if (elem.matches('[data-name="more"')) {
