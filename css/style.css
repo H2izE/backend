@@ -37,6 +37,16 @@ body{
     height: 22px;
 }
 
+
+/*.heart_btn.on .sprite_heart_icon_outline*/
+.sprite_heart_icon_outline.on
+{/*on 클래스 추가 시 이미지 변경*/
+    background: url('../imgs/background01.png') no-repeat -26px -261px;
+	width: 24px;
+	height: 22px;
+}
+
+
 .sprite_small_search_icon {
     display: inline-block;
     background: url('../imgs/background01.png') no-repeat -337px -246px;
@@ -320,12 +330,6 @@ body{
 
 .contents   .bottom_icons   .right_icons>div{
     cursor:pointer; /*누를수 있게 함*/
-}
-
-.heart_btn.on .sprite_heart_icon_outline{/*on 클래스 추가 시 이미지 변경*/
-    background: url('../imgs/background01.png') no-repeat -26px -261px;
-	width: 24px;
-	height: 22px;
 }
 
 .contents   .likes{
