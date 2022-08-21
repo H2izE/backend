@@ -85,6 +85,26 @@ function deligationFunc(e) {
                 alert('에러 발생-comment');
             }
         })
+        document.querySelector("#add-comment-post37 > input[type=text]").value = '';
+    } else if (elem.matches('[data-name="comment_delete"')) {
+        $.ajax({
+            Method: 'POST', //에러 시 GET으로 변경
+            url: 'data/delete.json',
+            data: {
+                'pk': 37
+            },
+            dataType: 'json',  //어떤 데이터로 들어오는지 설정
+            success: function (response) {
+                if (response.status) {
+                    let comt = document.querySelector('.comment-detail');
+                    comt.remove();
+                }
+            },
+            error: function (request, status, error) {
+                alert('에러 발생-comment delete');
+                window.location.replace('https://www.naver.com');
+            }
+        })
     } else if (elem.matches('[data-name="comment_delete"')) {
 
     } else if (elem.matches('[data-name="share"')) {
