@@ -105,8 +105,26 @@ function deligationFunc(e) {
                 window.location.replace('https://www.naver.com');
             }
         })
-    } else if (elem.matches('[data-name="comment_delete"')) {
-
+    } else if (elem.matches('[data-name="follow"')) {
+        $.ajax({
+            Method: 'POST', //에러 시 GET으로 변경
+            url: 'data/follow.json',
+            data: {
+                'pk': 37
+            },
+            dataType: 'json',  //어떤 데이터로 들어오는지 설정
+            success: function (response) {
+                if (response.status) {
+                    document.querySelector('input.follow').value = "팔로잉";
+                } else {
+                    document.querySelector('input.follow').value = "팔로워";
+                }
+            },
+            error: function (request, status, error) {
+                alert('에러 발생-comment delete');
+                window.location.replace('https://www.naver.com');
+            }
+        })
     } else if (elem.matches('[data-name="share"')) {
         console.log('공유누름');
     } if (elem.matches('[data-name="more"')) {

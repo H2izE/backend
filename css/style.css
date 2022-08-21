@@ -397,6 +397,29 @@ body{
     opacity: 0.6;
 }
 
+.contents .sprite_more_icon.on .toggle_box{
+    display: block;
+}
+
+.contents .toggle_box{
+    text-align: center;
+    position:absolute;
+    height: 0;
+    top:20px;
+    border : 1px solid rgba(0, 0, 0, 0.09);
+    border-radius:3px;
+    display:none;
+}
+
+.contents .toggle_box > li{
+    padding: 5px 10px;
+    background: #fff;
+}
+
+.contents .toggle_box > li input{
+    border : none;
+    font-size:inherit;
+}
 
 .side_box{
     width: 293px;
