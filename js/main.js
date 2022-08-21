@@ -62,6 +62,31 @@ function deligationFunc(e) {
                 window.location.replace('https://www.naver.com');//임시 에러 웹페이지
             }
         })
+    } else if (elem.matches('[data-name="comment"')) {
+        let content = document.querySelector('#add-comment-post37 > input[type=text]').value;
+
+        console.log(content);
+        if (content.length > 140) {
+            alert('댓글 최대 140자 입력 가능. 현재 글자수 : ' + content.length);
+            return;
+        }
+        $.ajax({
+            Method: 'POST', //에러 시 GET으로 변경
+            url: './comment.html',
+            data: {
+                'pk': 37,
+                'content': content
+            },
+            dataType: 'html',  //어떤 데이터로 들어오는지 설정
+            success: function (data) {
+                document.querySelector('#comment-list-ajax-post37').insertAdjacentHTML('afterbegin', data);
+            },
+            error: function (request, status, error) {
+                alert('에러 발생-comment');
+            }
+        })
+    } else if (elem.matches('[data-name="comment_delete"')) {
+
     } else if (elem.matches('[data-name="share"')) {
         console.log('공유누름');
     } if (elem.matches('[data-name="more"')) {

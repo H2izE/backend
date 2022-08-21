@@ -345,7 +345,12 @@ body{
 }
 .contents .comment_container .comment{
     display:flex;/*가로배치*/
+    flex-direction: column;
     font-size: 14px;
+}
+
+.contents .comment_container .comment-detail{
+    display : flex;/*가로배치*/
 }
 
 .contents .comment_container .comment .nick_name{
@@ -388,7 +393,7 @@ body{
     top: 50%;
     transform:translateY(-50%);/*y축 중앙정렬*/
     cursor: pointer;
-    pointer-events: none;/*클릭 금지*/
+    /*pointer-events: none;/*클릭 금지*/
     opacity: 0.6;
 }
 
