@@ -5,14 +5,14 @@ const sidebox = document.querySelector('.side_box');
 const variableWidth = document.querySelectorAll(".contents_box .contents");
 //SelectorAll을 통해 모든 요소를 가져옴
 
-const deligation = document.querySelector(".contents_box");
+const delegation = document.querySelector(".contents_box");
 
 // heart.addEventListener('click', function () {
 //     console.log('하트누름 정상작동');
 //     heart.classList.toggle('on');
 // });
 
-function deligationFunc(e) {
+function delegationFunc(e) {
     let elem = e.target; //클릭 요소 가져오기
     //console.log(e.target);
     console.log(elem);
@@ -154,24 +154,88 @@ function resizeFunc() {
 }
 
 function scrollFunc() {
-    //console.log(pageYOffset);
-    if (pageYOffset >= 10) {//드래그할 경우
+
+    var scrollHeight = pageYOffset + window.innerHeight;
+    var documentHeight = document.body.scrollHeight;
+
+
+    // console.log(pageYOffset);
+
+    if (pageYOffset >= 10) {
         header.classList.add('on');
-        sidebox.classList.add('on');
+
+
+        if (sidebox) {
+            sidebox.classList.add('on');
+        }
+
         resizeFunc();
+
+
     } else {
         header.classList.remove('on');
-        sidebox.classList.remove('on');
-        sidebox.removeAttribute('style');
+
+        if (sidebox) {
+            sidebox.classList.remove('on');
+            sidebox.removeAttribute('style');
+        }
+
     }
+
+    console.log('scrollHeight : ' + scrollHeight);
+    console.log('documentHeight : ' + documentHeight);
+
+    if (scrollHeight >= documentHeight) {
+
+        var page = document.querySelector('#page').value;
+
+        // page = parseInt(page) + 1;
+        // page = parseInt(page) + 1;
+        document.querySelector('#page').value = parseInt(page) + 1;
+        // $('#page').val(parseInt(page) + 1);
+
+        callMorePostAjax(page);
+
+        if (page > 10) {
+            return;
+        }
+
+    }
+
 }
 
+function callMorePostAjax(page) {
+
+    if (page > 10) {
+        return;
+    }
+
+    $.ajax({
+        type: 'GET',
+        url: "./post.html",
+        data: {
+            'page': page,
+        },
+        success: addMorePostAjax,
+        dataType: 'html',
+        error: function (request, status, error) {
+            alert('오류발생');
+            // alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        },
+    });
+
+}
+
+function addMorePostAjax(data) {
+
+    delegation.insertAdjacentHTML("beforeend", data);
+}
 setTimeout(function () {
     scrollTo(0, 0);
 }, 100); //새로고침하면 화면이 제일 위로 가게 함
 
-if (deligation) {
-    deligation.addEventListener('click', deligationFunc);
+if (delegation) {
+    delegation.addEventListener('click', delegationFunc);
 }
 
 
